@@ -14,21 +14,21 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define SST_CameraTriggerUpdateContents_generated_h
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_22_GENERATED_BODY \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_22_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCameraTriggerUpdateFloat_Statics; \
 	static class UScriptStruct* StaticStruct();
 
 
 template<> SST_API UScriptStruct* StaticStruct<struct FCameraTriggerUpdateFloat>();
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_47_GENERATED_BODY \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_47_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCameraTriggerUpdateBool_Statics; \
 	static class UScriptStruct* StaticStruct();
 
 
 template<> SST_API UScriptStruct* StaticStruct<struct FCameraTriggerUpdateBool>();
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_72_GENERATED_BODY \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_72_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FCameraTriggerUpdateVector_Statics; \
 	static class UScriptStruct* StaticStruct();
 
@@ -36,7 +36,7 @@ template<> SST_API UScriptStruct* StaticStruct<struct FCameraTriggerUpdateBool>(
 template<> SST_API UScriptStruct* StaticStruct<struct FCameraTriggerUpdateVector>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h
+#define CURRENT_FILE_ID FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h
 
 
 #define FOREACH_ENUM_ECAMERATRIGGERUPDATEFLOATPARAMETER(op) \

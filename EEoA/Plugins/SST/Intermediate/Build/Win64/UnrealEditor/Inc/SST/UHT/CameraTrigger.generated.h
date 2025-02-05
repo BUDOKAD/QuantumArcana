@@ -15,7 +15,7 @@ class AActor;
 #endif
 #define SST_CameraTrigger_generated_h
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
 	virtual void InitiateCameraUpdate_Implementation(AActor* Actor, bool Undo); \
 	virtual void OnOverlapEnd_Implementation(AActor* ThisActor, AActor* OtherActor); \
 	virtual void OnOverlapBegin_Implementation(AActor* ThisActor, AActor* OtherActor); \
@@ -24,8 +24,8 @@ class AActor;
 	DECLARE_FUNCTION(execOnOverlapBegin);
 
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_CALLBACK_WRAPPERS
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_INCLASS_NO_PURE_DECLS \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_CALLBACK_WRAPPERS
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesACameraTrigger(); \
 	friend struct Z_Construct_UClass_ACameraTrigger_Statics; \
@@ -34,7 +34,7 @@ public: \
 	DECLARE_SERIALIZER(ACameraTrigger)
 
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_ENHANCED_CONSTRUCTORS \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ACameraTrigger(ACameraTrigger&&); \
@@ -46,14 +46,14 @@ public: \
 	NO_API virtual ~ACameraTrigger();
 
 
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_20_PROLOG
-#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_GENERATED_BODY \
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_20_PROLOG
+#define FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_CALLBACK_WRAPPERS \
-	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_INCLASS_NO_PURE_DECLS \
-	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_ENHANCED_CONSTRUCTORS \
+	FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_CALLBACK_WRAPPERS \
+	FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_INCLASS_NO_PURE_DECLS \
+	FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_23_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -61,7 +61,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> SST_API UClass* StaticClass<class ACameraTrigger>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h
+#define CURRENT_FILE_ID FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

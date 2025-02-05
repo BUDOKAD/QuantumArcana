@@ -28,22 +28,34 @@ struct CameraTrigger_eventInitiateCameraUpdate_Parms
 	AActor* Actor;
 	bool Undo;
 };
-static FName NAME_ACameraTrigger_InitiateCameraUpdate = FName(TEXT("InitiateCameraUpdate"));
+static const FName NAME_ACameraTrigger_InitiateCameraUpdate = FName(TEXT("InitiateCameraUpdate"));
 void ACameraTrigger::InitiateCameraUpdate(AActor* Actor, bool Undo)
 {
-	CameraTrigger_eventInitiateCameraUpdate_Parms Parms;
-	Parms.Actor=Actor;
-	Parms.Undo=Undo ? true : false;
-	ProcessEvent(FindFunctionChecked(NAME_ACameraTrigger_InitiateCameraUpdate),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_ACameraTrigger_InitiateCameraUpdate);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		CameraTrigger_eventInitiateCameraUpdate_Parms Parms;
+		Parms.Actor=Actor;
+		Parms.Undo=Undo ? true : false;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		InitiateCameraUpdate_Implementation(Actor, Undo);
+	}
 }
 struct Z_Construct_UFunction_ACameraTrigger_InitiateCameraUpdate_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Performs the actal modifications to the camera parameters */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Performs the actal modifications to the camera parameters" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Actor;
@@ -91,22 +103,34 @@ struct CameraTrigger_eventOnOverlapBegin_Parms
 	AActor* ThisActor;
 	AActor* OtherActor;
 };
-static FName NAME_ACameraTrigger_OnOverlapBegin = FName(TEXT("OnOverlapBegin"));
+static const FName NAME_ACameraTrigger_OnOverlapBegin = FName(TEXT("OnOverlapBegin"));
 void ACameraTrigger::OnOverlapBegin(AActor* ThisActor, AActor* OtherActor)
 {
-	CameraTrigger_eventOnOverlapBegin_Parms Parms;
-	Parms.ThisActor=ThisActor;
-	Parms.OtherActor=OtherActor;
-	ProcessEvent(FindFunctionChecked(NAME_ACameraTrigger_OnOverlapBegin),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_ACameraTrigger_OnOverlapBegin);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		CameraTrigger_eventOnOverlapBegin_Parms Parms;
+		Parms.ThisActor=ThisActor;
+		Parms.OtherActor=OtherActor;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		OnOverlapBegin_Implementation(ThisActor, OtherActor);
+	}
 }
 struct Z_Construct_UFunction_ACameraTrigger_OnOverlapBegin_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when the character enters the trigger volume. */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when the character enters the trigger volume." },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ThisActor;
@@ -149,22 +173,34 @@ struct CameraTrigger_eventOnOverlapEnd_Parms
 	AActor* ThisActor;
 	AActor* OtherActor;
 };
-static FName NAME_ACameraTrigger_OnOverlapEnd = FName(TEXT("OnOverlapEnd"));
+static const FName NAME_ACameraTrigger_OnOverlapEnd = FName(TEXT("OnOverlapEnd"));
 void ACameraTrigger::OnOverlapEnd(AActor* ThisActor, AActor* OtherActor)
 {
-	CameraTrigger_eventOnOverlapEnd_Parms Parms;
-	Parms.ThisActor=ThisActor;
-	Parms.OtherActor=OtherActor;
-	ProcessEvent(FindFunctionChecked(NAME_ACameraTrigger_OnOverlapEnd),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_ACameraTrigger_OnOverlapEnd);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		CameraTrigger_eventOnOverlapEnd_Parms Parms;
+		Parms.ThisActor=ThisActor;
+		Parms.OtherActor=OtherActor;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		OnOverlapEnd_Implementation(ThisActor, OtherActor);
+	}
 }
 struct Z_Construct_UFunction_ACameraTrigger_OnOverlapEnd_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when the character leaves the trigger volume. */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when the character leaves the trigger volume." },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_ThisActor;
@@ -221,38 +257,58 @@ struct Z_Construct_UClass_ACameraTrigger_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * A trigger object designed to work with the CameraFollowedCharacter type.\n * Defines regions where the player camera blends to a different camera, and/or\n *   changes parameters (e.g. zoom). Can be configured to revert back to previous\n *   settings when leaving the region.\n */" },
+#endif
 		{ "IncludePath", "CameraTrigger.h" },
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "A trigger object designed to work with the CameraFollowedCharacter type.\nDefines regions where the player camera blends to a different camera, and/or\n  changes parameters (e.g. zoom). Can be configured to revert back to previous\n  settings when leaving the region." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_UndoAfterEndOverlap_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, the camera will revert to previous settings when leaving the volume */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, the camera will revert to previous settings when leaving the volume" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetCamera_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If not none, will swap to target external camera in the scene */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If not none, will swap to target external camera in the scene" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TargetCameraBlendTime_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Time over which to smoothly blend to an external camera */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Time over which to smoothly blend to an external camera" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FloatParameters_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Updates to apply */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTrigger.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Updates to apply" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BoolParameters_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -278,9 +334,9 @@ struct Z_Construct_UClass_ACameraTrigger_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ACameraTrigger_InitiateCameraUpdate, "InitiateCameraUpdate" }, // 2116638139
-		{ &Z_Construct_UFunction_ACameraTrigger_OnOverlapBegin, "OnOverlapBegin" }, // 749852610
-		{ &Z_Construct_UFunction_ACameraTrigger_OnOverlapEnd, "OnOverlapEnd" }, // 601529219
+		{ &Z_Construct_UFunction_ACameraTrigger_InitiateCameraUpdate, "InitiateCameraUpdate" }, // 3617392940
+		{ &Z_Construct_UFunction_ACameraTrigger_OnOverlapBegin, "OnOverlapBegin" }, // 1400935483
+		{ &Z_Construct_UFunction_ACameraTrigger_OnOverlapEnd, "OnOverlapEnd" }, // 2101926160
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -295,12 +351,12 @@ void Z_Construct_UClass_ACameraTrigger_Statics::NewProp_UndoAfterEndOverlap_SetB
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_UndoAfterEndOverlap = { "UndoAfterEndOverlap", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ACameraTrigger), &Z_Construct_UClass_ACameraTrigger_Statics::NewProp_UndoAfterEndOverlap_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UndoAfterEndOverlap_MetaData), NewProp_UndoAfterEndOverlap_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_TargetCamera = { "TargetCamera", nullptr, (EPropertyFlags)0x0144000000000005, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, TargetCamera), Z_Construct_UClass_ACameraActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetCamera_MetaData), NewProp_TargetCamera_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_TargetCameraBlendTime = { "TargetCameraBlendTime", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, TargetCameraBlendTime), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TargetCameraBlendTime_MetaData), NewProp_TargetCameraBlendTime_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_FloatParameters_Inner = { "FloatParameters", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCameraTriggerUpdateFloat, METADATA_PARAMS(0, nullptr) }; // 2382621127
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_FloatParameters = { "FloatParameters", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, FloatParameters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloatParameters_MetaData), NewProp_FloatParameters_MetaData) }; // 2382621127
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_BoolParameters_Inner = { "BoolParameters", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCameraTriggerUpdateBool, METADATA_PARAMS(0, nullptr) }; // 1920774402
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_BoolParameters = { "BoolParameters", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, BoolParameters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BoolParameters_MetaData), NewProp_BoolParameters_MetaData) }; // 1920774402
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_VectorParameters_Inner = { "VectorParameters", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCameraTriggerUpdateVector, METADATA_PARAMS(0, nullptr) }; // 343687005
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_VectorParameters = { "VectorParameters", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, VectorParameters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_VectorParameters_MetaData), NewProp_VectorParameters_MetaData) }; // 343687005
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_FloatParameters_Inner = { "FloatParameters", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCameraTriggerUpdateFloat, METADATA_PARAMS(0, nullptr) }; // 819453077
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_FloatParameters = { "FloatParameters", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, FloatParameters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloatParameters_MetaData), NewProp_FloatParameters_MetaData) }; // 819453077
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_BoolParameters_Inner = { "BoolParameters", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCameraTriggerUpdateBool, METADATA_PARAMS(0, nullptr) }; // 1745092448
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_BoolParameters = { "BoolParameters", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, BoolParameters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_BoolParameters_MetaData), NewProp_BoolParameters_MetaData) }; // 1745092448
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_VectorParameters_Inner = { "VectorParameters", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FCameraTriggerUpdateVector, METADATA_PARAMS(0, nullptr) }; // 1808370222
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ACameraTrigger_Statics::NewProp_VectorParameters = { "VectorParameters", nullptr, (EPropertyFlags)0x0040000000000005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraTrigger, VectorParameters), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_VectorParameters_MetaData), NewProp_VectorParameters_MetaData) }; // 1808370222
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACameraTrigger_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACameraTrigger_Statics::NewProp_UndoAfterEndOverlap,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACameraTrigger_Statics::NewProp_TargetCamera,
@@ -350,14 +406,14 @@ ACameraTrigger::~ACameraTrigger() {}
 // End Class ACameraTrigger
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_Statics
+struct Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ACameraTrigger, ACameraTrigger::StaticClass, TEXT("ACameraTrigger"), &Z_Registration_Info_UClass_ACameraTrigger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACameraTrigger), 743928141U) },
+		{ Z_Construct_UClass_ACameraTrigger, ACameraTrigger::StaticClass, TEXT("ACameraTrigger"), &Z_Registration_Info_UClass_ACameraTrigger, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACameraTrigger), 3824116459U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_930682516(TEXT("/Script/SST"),
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTrigger_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_757699471(TEXT("/Script/SST"),
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTrigger_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

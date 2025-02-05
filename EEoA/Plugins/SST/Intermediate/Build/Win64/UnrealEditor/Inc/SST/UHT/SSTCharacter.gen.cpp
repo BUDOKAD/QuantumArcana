@@ -31,21 +31,33 @@ struct SSTCharacter_eventCanDash_Parms
 	{
 	}
 };
-static FName NAME_ASSTCharacter_CanDash = FName(TEXT("CanDash"));
+static const FName NAME_ASSTCharacter_CanDash = FName(TEXT("CanDash"));
 bool ASSTCharacter::CanDash() const
 {
-	SSTCharacter_eventCanDash_Parms Parms;
-	const_cast<ASSTCharacter*>(this)->ProcessEvent(FindFunctionChecked(NAME_ASSTCharacter_CanDash),&Parms);
-	return !!Parms.ReturnValue;
+	UFunction* Func = FindFunctionChecked(NAME_ASSTCharacter_CanDash);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		SSTCharacter_eventCanDash_Parms Parms;
+		const_cast<ASSTCharacter*>(this)->ProcessEvent(Func,&Parms);
+		return !!Parms.ReturnValue;
+	}
+	else
+	{
+		return const_cast<ASSTCharacter*>(this)->CanDash_Implementation();
+	}
 }
 struct Z_Construct_UFunction_ASSTCharacter_CanDash_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Can override in blueprint for custom dash checking on this character */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Can override in blueprint for custom dash checking on this character" },
+#endif
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -83,19 +95,31 @@ DEFINE_FUNCTION(ASSTCharacter::execCanDash)
 // End Class ASSTCharacter Function CanDash
 
 // Begin Class ASSTCharacter Function CrouchDrop
-static FName NAME_ASSTCharacter_CrouchDrop = FName(TEXT("CrouchDrop"));
+static const FName NAME_ASSTCharacter_CrouchDrop = FName(TEXT("CrouchDrop"));
 void ASSTCharacter::CrouchDrop()
 {
-	ProcessEvent(FindFunctionChecked(NAME_ASSTCharacter_CrouchDrop),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_ASSTCharacter_CrouchDrop);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		CrouchDrop_Implementation();
+	}
 }
 struct Z_Construct_UFunction_ASSTCharacter_CrouchDrop_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called for crouch/drop input */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called for crouch/drop input" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -120,19 +144,31 @@ DEFINE_FUNCTION(ASSTCharacter::execCrouchDrop)
 // End Class ASSTCharacter Function CrouchDrop
 
 // Begin Class ASSTCharacter Function Dash
-static FName NAME_ASSTCharacter_Dash = FName(TEXT("Dash"));
+static const FName NAME_ASSTCharacter_Dash = FName(TEXT("Dash"));
 void ASSTCharacter::Dash()
 {
-	ProcessEvent(FindFunctionChecked(NAME_ASSTCharacter_Dash),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_ASSTCharacter_Dash);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		Dash_Implementation();
+	}
 }
 struct Z_Construct_UFunction_ASSTCharacter_Dash_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called for dash input */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called for dash input" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -202,19 +238,31 @@ DEFINE_FUNCTION(ASSTCharacter::execGetSSTCharacterMovement)
 // End Class ASSTCharacter Function GetSSTCharacterMovement
 
 // Begin Class ASSTCharacter Function JumpOrDrop
-static FName NAME_ASSTCharacter_JumpOrDrop = FName(TEXT("JumpOrDrop"));
+static const FName NAME_ASSTCharacter_JumpOrDrop = FName(TEXT("JumpOrDrop"));
 void ASSTCharacter::JumpOrDrop()
 {
-	ProcessEvent(FindFunctionChecked(NAME_ASSTCharacter_JumpOrDrop),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_ASSTCharacter_JumpOrDrop);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		JumpOrDrop_Implementation();
+	}
 }
 struct Z_Construct_UFunction_ASSTCharacter_JumpOrDrop_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when jump pressed, which could also be a drop-down command */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when jump pressed, which could also be a drop-down command" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -239,19 +287,31 @@ DEFINE_FUNCTION(ASSTCharacter::execJumpOrDrop)
 // End Class ASSTCharacter Function JumpOrDrop
 
 // Begin Class ASSTCharacter Function ReleaseJump
-static FName NAME_ASSTCharacter_ReleaseJump = FName(TEXT("ReleaseJump"));
+static const FName NAME_ASSTCharacter_ReleaseJump = FName(TEXT("ReleaseJump"));
 void ASSTCharacter::ReleaseJump()
 {
-	ProcessEvent(FindFunctionChecked(NAME_ASSTCharacter_ReleaseJump),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_ASSTCharacter_ReleaseJump);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		ReleaseJump_Implementation();
+	}
 }
 struct Z_Construct_UFunction_ASSTCharacter_ReleaseJump_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when releasing the jump button */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when releasing the jump button" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -276,19 +336,31 @@ DEFINE_FUNCTION(ASSTCharacter::execReleaseJump)
 // End Class ASSTCharacter Function ReleaseJump
 
 // Begin Class ASSTCharacter Function StopCrouchDrop
-static FName NAME_ASSTCharacter_StopCrouchDrop = FName(TEXT("StopCrouchDrop"));
+static const FName NAME_ASSTCharacter_StopCrouchDrop = FName(TEXT("StopCrouchDrop"));
 void ASSTCharacter::StopCrouchDrop()
 {
-	ProcessEvent(FindFunctionChecked(NAME_ASSTCharacter_StopCrouchDrop),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_ASSTCharacter_StopCrouchDrop);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		StopCrouchDrop_Implementation();
+	}
 }
 struct Z_Construct_UFunction_ASSTCharacter_StopCrouchDrop_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when releasing crouch/drop input */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when releasing crouch/drop input" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -336,70 +408,106 @@ struct Z_Construct_UClass_ASSTCharacter_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * Extends the default ACharacter to provide:\n * - A custom character movement component, supporting dash, wallslide, etc.\n * - A FollowCamera component, which follows the character and can be modified via CameraTrigger objects.\n * - Input bindings for left/right motion, Jump, Dash, Crouch, and platform-drop\n * \n * USSTCharacterMovementComponent should remain the sole authority on movement for this character. \n */" },
+#endif
 		{ "HideCategories", "Navigation" },
 		{ "IncludePath", "SSTCharacter.h" },
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
 		{ "ObjectInitializerConstructorDeclared", "" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Extends the default ACharacter to provide:\n- A custom character movement component, supporting dash, wallslide, etc.\n- A FollowCamera component, which follows the character and can be modified via CameraTrigger objects.\n- Input bindings for left/right motion, Jump, Dash, Crouch, and platform-drop\n\nUSSTCharacterMovementComponent should remain the sole authority on movement for this character." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SSTCharacterMovementComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Custom CharacterMovementComponent */" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Custom CharacterMovementComponent" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FollowCamera_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Camera Component */" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Camera Component" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DefaultMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** MappingContext */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MappingContext" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_JumpAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Jump Input Action */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Jump Input Action" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CrouchDropAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Crouch/Drop Input Action */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Crouch/Drop Input Action" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MoveAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Move Input Action */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Move Input Action" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Jump Input Action */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Jump Input Action" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DropThroughPlatformJumpLockout_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Time in seconds after dropping through a platform before the button becomes usable for jump input */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacter.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Time in seconds after dropping through a platform before the button becomes usable for jump input" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SSTCharacterMovementComponent;
@@ -413,13 +521,13 @@ struct Z_Construct_UClass_ASSTCharacter_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_ASSTCharacter_CanDash, "CanDash" }, // 3593274679
-		{ &Z_Construct_UFunction_ASSTCharacter_CrouchDrop, "CrouchDrop" }, // 2955846641
-		{ &Z_Construct_UFunction_ASSTCharacter_Dash, "Dash" }, // 2208390478
+		{ &Z_Construct_UFunction_ASSTCharacter_CanDash, "CanDash" }, // 2027359070
+		{ &Z_Construct_UFunction_ASSTCharacter_CrouchDrop, "CrouchDrop" }, // 3124606713
+		{ &Z_Construct_UFunction_ASSTCharacter_Dash, "Dash" }, // 3153030590
 		{ &Z_Construct_UFunction_ASSTCharacter_GetSSTCharacterMovement, "GetSSTCharacterMovement" }, // 1949219356
-		{ &Z_Construct_UFunction_ASSTCharacter_JumpOrDrop, "JumpOrDrop" }, // 508142006
-		{ &Z_Construct_UFunction_ASSTCharacter_ReleaseJump, "ReleaseJump" }, // 2031578101
-		{ &Z_Construct_UFunction_ASSTCharacter_StopCrouchDrop, "StopCrouchDrop" }, // 1984970481
+		{ &Z_Construct_UFunction_ASSTCharacter_JumpOrDrop, "JumpOrDrop" }, // 3537146489
+		{ &Z_Construct_UFunction_ASSTCharacter_ReleaseJump, "ReleaseJump" }, // 3067935974
+		{ &Z_Construct_UFunction_ASSTCharacter_StopCrouchDrop, "StopCrouchDrop" }, // 635478511
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -483,14 +591,14 @@ ASSTCharacter::~ASSTCharacter() {}
 // End Class ASSTCharacter
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacter_h_Statics
+struct Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASSTCharacter, ASSTCharacter::StaticClass, TEXT("ASSTCharacter"), &Z_Registration_Info_UClass_ASSTCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASSTCharacter), 3875320164U) },
+		{ Z_Construct_UClass_ASSTCharacter, ASSTCharacter::StaticClass, TEXT("ASSTCharacter"), &Z_Registration_Info_UClass_ASSTCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASSTCharacter), 3566582102U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacter_h_2659050174(TEXT("/Script/SST"),
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacter_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacter_h_369476991(TEXT("/Script/SST"),
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

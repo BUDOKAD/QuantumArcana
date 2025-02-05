@@ -331,9 +331,13 @@ struct Z_Construct_UFunction_UFollowCameraComponent_GetZoomDistance_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/* These getters return the target value, which may differ from the instantaneous value if it is currently interpolating */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "These getters return the target value, which may differ from the instantaneous value if it is currently interpolating" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
@@ -370,12 +374,20 @@ struct FollowCameraComponent_eventSetFixLeadAtMax_Parms
 {
 	bool Value;
 };
-static FName NAME_UFollowCameraComponent_SetFixLeadAtMax = FName(TEXT("SetFixLeadAtMax"));
+static const FName NAME_UFollowCameraComponent_SetFixLeadAtMax = FName(TEXT("SetFixLeadAtMax"));
 void UFollowCameraComponent::SetFixLeadAtMax(bool Value)
 {
-	FollowCameraComponent_eventSetFixLeadAtMax_Parms Parms;
-	Parms.Value=Value ? true : false;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetFixLeadAtMax),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetFixLeadAtMax);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetFixLeadAtMax_Parms Parms;
+		Parms.Value=Value ? true : false;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetFixLeadAtMax_Implementation(Value);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetFixLeadAtMax_Statics
 {
@@ -425,12 +437,20 @@ struct FollowCameraComponent_eventSetLeadSpeed_Parms
 {
 	float Value;
 };
-static FName NAME_UFollowCameraComponent_SetLeadSpeed = FName(TEXT("SetLeadSpeed"));
+static const FName NAME_UFollowCameraComponent_SetLeadSpeed = FName(TEXT("SetLeadSpeed"));
 void UFollowCameraComponent::SetLeadSpeed(float Value)
 {
-	FollowCameraComponent_eventSetLeadSpeed_Parms Parms;
-	Parms.Value=Value;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetLeadSpeed),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetLeadSpeed);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetLeadSpeed_Parms Parms;
+		Parms.Value=Value;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetLeadSpeed_Implementation(Value);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetLeadSpeed_Statics
 {
@@ -476,13 +496,21 @@ struct FollowCameraComponent_eventSetLocationOffset_Parms
 	FVector Value;
 	float BlendTime;
 };
-static FName NAME_UFollowCameraComponent_SetLocationOffset = FName(TEXT("SetLocationOffset"));
+static const FName NAME_UFollowCameraComponent_SetLocationOffset = FName(TEXT("SetLocationOffset"));
 void UFollowCameraComponent::SetLocationOffset(FVector Value, float BlendTime)
 {
-	FollowCameraComponent_eventSetLocationOffset_Parms Parms;
-	Parms.Value=Value;
-	Parms.BlendTime=BlendTime;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetLocationOffset),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetLocationOffset);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetLocationOffset_Parms Parms;
+		Parms.Value=Value;
+		Parms.BlendTime=BlendTime;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetLocationOffset_Implementation(Value, BlendTime);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetLocationOffset_Statics
 {
@@ -531,12 +559,20 @@ struct FollowCameraComponent_eventSetMaxLeadDistance_Parms
 {
 	float Value;
 };
-static FName NAME_UFollowCameraComponent_SetMaxLeadDistance = FName(TEXT("SetMaxLeadDistance"));
+static const FName NAME_UFollowCameraComponent_SetMaxLeadDistance = FName(TEXT("SetMaxLeadDistance"));
 void UFollowCameraComponent::SetMaxLeadDistance(float Value)
 {
-	FollowCameraComponent_eventSetMaxLeadDistance_Parms Parms;
-	Parms.Value=Value;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetMaxLeadDistance),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetMaxLeadDistance);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetMaxLeadDistance_Parms Parms;
+		Parms.Value=Value;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetMaxLeadDistance_Implementation(Value);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetMaxLeadDistance_Statics
 {
@@ -582,13 +618,21 @@ struct FollowCameraComponent_eventSetRotationOffset_Parms
 	FVector Value;
 	float BlendTime;
 };
-static FName NAME_UFollowCameraComponent_SetRotationOffset = FName(TEXT("SetRotationOffset"));
+static const FName NAME_UFollowCameraComponent_SetRotationOffset = FName(TEXT("SetRotationOffset"));
 void UFollowCameraComponent::SetRotationOffset(FVector Value, float BlendTime)
 {
-	FollowCameraComponent_eventSetRotationOffset_Parms Parms;
-	Parms.Value=Value;
-	Parms.BlendTime=BlendTime;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetRotationOffset),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetRotationOffset);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetRotationOffset_Parms Parms;
+		Parms.Value=Value;
+		Parms.BlendTime=BlendTime;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetRotationOffset_Implementation(Value, BlendTime);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetRotationOffset_Statics
 {
@@ -637,12 +681,20 @@ struct FollowCameraComponent_eventSetZLock_Parms
 {
 	bool Value;
 };
-static FName NAME_UFollowCameraComponent_SetZLock = FName(TEXT("SetZLock"));
+static const FName NAME_UFollowCameraComponent_SetZLock = FName(TEXT("SetZLock"));
 void UFollowCameraComponent::SetZLock(bool Value)
 {
-	FollowCameraComponent_eventSetZLock_Parms Parms;
-	Parms.Value=Value ? true : false;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetZLock),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetZLock);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetZLock_Parms Parms;
+		Parms.Value=Value ? true : false;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetZLock_Implementation(Value);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetZLock_Statics
 {
@@ -693,13 +745,21 @@ struct FollowCameraComponent_eventSetZLockHeight_Parms
 	float Value;
 	float BlendTime;
 };
-static FName NAME_UFollowCameraComponent_SetZLockHeight = FName(TEXT("SetZLockHeight"));
+static const FName NAME_UFollowCameraComponent_SetZLockHeight = FName(TEXT("SetZLockHeight"));
 void UFollowCameraComponent::SetZLockHeight(float Value, float BlendTime)
 {
-	FollowCameraComponent_eventSetZLockHeight_Parms Parms;
-	Parms.Value=Value;
-	Parms.BlendTime=BlendTime;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetZLockHeight),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetZLockHeight);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetZLockHeight_Parms Parms;
+		Parms.Value=Value;
+		Parms.BlendTime=BlendTime;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetZLockHeight_Implementation(Value, BlendTime);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetZLockHeight_Statics
 {
@@ -749,22 +809,34 @@ struct FollowCameraComponent_eventSetZoomDistance_Parms
 	float Value;
 	float BlendTime;
 };
-static FName NAME_UFollowCameraComponent_SetZoomDistance = FName(TEXT("SetZoomDistance"));
+static const FName NAME_UFollowCameraComponent_SetZoomDistance = FName(TEXT("SetZoomDistance"));
 void UFollowCameraComponent::SetZoomDistance(float Value, float BlendTime)
 {
-	FollowCameraComponent_eventSetZoomDistance_Parms Parms;
-	Parms.Value=Value;
-	Parms.BlendTime=BlendTime;
-	ProcessEvent(FindFunctionChecked(NAME_UFollowCameraComponent_SetZoomDistance),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_UFollowCameraComponent_SetZoomDistance);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		FollowCameraComponent_eventSetZoomDistance_Parms Parms;
+		Parms.Value=Value;
+		Parms.BlendTime=BlendTime;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		SetZoomDistance_Implementation(Value, BlendTime);
+	}
 }
 struct Z_Construct_UFunction_UFollowCameraComponent_SetZoomDistance_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/* Can be called manually, or overriden in blueprints to define behaviors using different curves */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Can be called manually, or overriden in blueprints to define behaviors using different curves" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_Value;
@@ -834,88 +906,136 @@ struct Z_Construct_UClass_UFollowCameraComponent_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * A camera component which automatically follows the camera to which it is attached.\n * Designed to work with CameraTrigger, which can adjust this camera when the owning\n *\x09""character enters an overlapping volume. \n */" },
+#endif
 		{ "HideCategories", "Mobility Rendering LOD Trigger PhysicsVolume" },
 		{ "IncludePath", "FollowCameraComponent.h" },
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "A camera component which automatically follows the camera to which it is attached.\nDesigned to work with CameraTrigger, which can adjust this camera when the owning\n    character enters an overlapping volume." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraZoomDistance_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Camera zoom */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Camera zoom" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraLeadMaxDistance_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** The maximum amount by which the camera leads the character, when in follow mode */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The maximum amount by which the camera leads the character, when in follow mode" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraLeadSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Adjusts the speed with which the camera moves to lead the character, when in follow mode */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Adjusts the speed with which the camera moves to lead the character, when in follow mode" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FixLeadAtMax_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, the camera will stay at max lead distance (plus any offsets) for left/right, regardless of movement. */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, the camera will stay at max lead distance (plus any offsets) for left/right, regardless of movement." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraZLock_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, locks the camera to a specific z-height, rather than following character as they jump */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, locks the camera to a specific z-height, rather than following character as they jump" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraZLockHeight_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Z-height of the camera, when CameraZLock == true */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Z-height of the camera, when CameraZLock == true" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraBlendSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Controls speed of blend when swapping to a different camera in the level */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Controls speed of blend when swapping to a different camera in the level" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraLocationOffset_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Static offset to add to camera transform */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Static offset to add to camera transform" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraRotationOffset_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Static rotation to add to camera (roll, pitch, yaw) */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Static rotation to add to camera (roll, pitch, yaw)" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CameraLeadLock_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, camera will freeze its lead position until false (e.g. during dash) */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, camera will freeze its lead position until false (e.g. during dash)" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CrouchHeightReduction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Set this based on the capsule half-height difference to prevent the camera moving while crouching */" },
+#endif
 		{ "ModuleRelativePath", "Public/FollowCameraComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Set this based on the capsule half-height difference to prevent the camera moving while crouching" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_CameraZoomDistance;
@@ -942,7 +1062,7 @@ struct Z_Construct_UClass_UFollowCameraComponent_Statics
 		{ &Z_Construct_UFunction_UFollowCameraComponent_GetRotationOffset, "GetRotationOffset" }, // 2924212940
 		{ &Z_Construct_UFunction_UFollowCameraComponent_GetZLock, "GetZLock" }, // 4106188390
 		{ &Z_Construct_UFunction_UFollowCameraComponent_GetZLockHeight, "GetZLockHeight" }, // 2078334686
-		{ &Z_Construct_UFunction_UFollowCameraComponent_GetZoomDistance, "GetZoomDistance" }, // 4006794990
+		{ &Z_Construct_UFunction_UFollowCameraComponent_GetZoomDistance, "GetZoomDistance" }, // 1858165997
 		{ &Z_Construct_UFunction_UFollowCameraComponent_SetFixLeadAtMax, "SetFixLeadAtMax" }, // 2388140421
 		{ &Z_Construct_UFunction_UFollowCameraComponent_SetLeadSpeed, "SetLeadSpeed" }, // 3944945882
 		{ &Z_Construct_UFunction_UFollowCameraComponent_SetLocationOffset, "SetLocationOffset" }, // 3696008917
@@ -950,7 +1070,7 @@ struct Z_Construct_UClass_UFollowCameraComponent_Statics
 		{ &Z_Construct_UFunction_UFollowCameraComponent_SetRotationOffset, "SetRotationOffset" }, // 3805730650
 		{ &Z_Construct_UFunction_UFollowCameraComponent_SetZLock, "SetZLock" }, // 2011639509
 		{ &Z_Construct_UFunction_UFollowCameraComponent_SetZLockHeight, "SetZLockHeight" }, // 1733392576
-		{ &Z_Construct_UFunction_UFollowCameraComponent_SetZoomDistance, "SetZoomDistance" }, // 478340218
+		{ &Z_Construct_UFunction_UFollowCameraComponent_SetZoomDistance, "SetZoomDistance" }, // 1383539058
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -1032,14 +1152,14 @@ UFollowCameraComponent::~UFollowCameraComponent() {}
 // End Class UFollowCameraComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UFollowCameraComponent, UFollowCameraComponent::StaticClass, TEXT("UFollowCameraComponent"), &Z_Registration_Info_UClass_UFollowCameraComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFollowCameraComponent), 1290819007U) },
+		{ Z_Construct_UClass_UFollowCameraComponent, UFollowCameraComponent::StaticClass, TEXT("UFollowCameraComponent"), &Z_Registration_Info_UClass_UFollowCameraComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFollowCameraComponent), 3731712364U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_3803573614(TEXT("/Script/SST"),
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_3443031090(TEXT("/Script/SST"),
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_FollowCameraComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

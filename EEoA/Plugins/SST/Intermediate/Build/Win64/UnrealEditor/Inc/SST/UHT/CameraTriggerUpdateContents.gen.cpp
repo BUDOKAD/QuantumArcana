@@ -104,23 +104,35 @@ struct Z_Construct_UScriptStruct_FCameraTriggerUpdateFloat_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Parameter_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Which parameter to update */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Which parameter to update" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** New value */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "New value" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlendTime_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Total time over which to make a smooth transition. Instant if set to 0 */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Total time over which to make a smooth transition. Instant if set to 0" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Parameter_Underlying;
@@ -246,23 +258,35 @@ struct Z_Construct_UScriptStruct_FCameraTriggerUpdateBool_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Parameter_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Which parameter to update */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Which parameter to update" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** New value */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "New value" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlendTime_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Total time over which to make a smooth transition. Instant if set to 0 */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Total time over which to make a smooth transition. Instant if set to 0" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Parameter_Underlying;
@@ -393,23 +417,35 @@ struct Z_Construct_UScriptStruct_FCameraTriggerUpdateVector_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Parameter_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Which parameter to update */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Which parameter to update" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Value_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** New value */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "New value" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BlendTime_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Camera" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Total time over which to make a smooth transition. Instant if set to 0 */" },
+#endif
 		{ "ModuleRelativePath", "Public/CameraTriggerUpdateContents.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Total time over which to make a smooth transition. Instant if set to 0" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Parameter_Underlying;
@@ -458,7 +494,7 @@ UScriptStruct* Z_Construct_UScriptStruct_FCameraTriggerUpdateVector()
 // End ScriptStruct FCameraTriggerUpdateVector
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics
+struct Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ ECameraTriggerUpdateFloatParameter_StaticEnum, TEXT("ECameraTriggerUpdateFloatParameter"), &Z_Registration_Info_UEnum_ECameraTriggerUpdateFloatParameter, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2642074245U) },
@@ -466,14 +502,14 @@ struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTe
 		{ ECameraTriggerUpdateVectorParameter_StaticEnum, TEXT("ECameraTriggerUpdateVectorParameter"), &Z_Registration_Info_UEnum_ECameraTriggerUpdateVectorParameter, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 611497517U) },
 	};
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FCameraTriggerUpdateFloat::StaticStruct, Z_Construct_UScriptStruct_FCameraTriggerUpdateFloat_Statics::NewStructOps, TEXT("CameraTriggerUpdateFloat"), &Z_Registration_Info_UScriptStruct_CameraTriggerUpdateFloat, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCameraTriggerUpdateFloat), 2382621127U) },
-		{ FCameraTriggerUpdateBool::StaticStruct, Z_Construct_UScriptStruct_FCameraTriggerUpdateBool_Statics::NewStructOps, TEXT("CameraTriggerUpdateBool"), &Z_Registration_Info_UScriptStruct_CameraTriggerUpdateBool, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCameraTriggerUpdateBool), 1920774402U) },
-		{ FCameraTriggerUpdateVector::StaticStruct, Z_Construct_UScriptStruct_FCameraTriggerUpdateVector_Statics::NewStructOps, TEXT("CameraTriggerUpdateVector"), &Z_Registration_Info_UScriptStruct_CameraTriggerUpdateVector, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCameraTriggerUpdateVector), 343687005U) },
+		{ FCameraTriggerUpdateFloat::StaticStruct, Z_Construct_UScriptStruct_FCameraTriggerUpdateFloat_Statics::NewStructOps, TEXT("CameraTriggerUpdateFloat"), &Z_Registration_Info_UScriptStruct_CameraTriggerUpdateFloat, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCameraTriggerUpdateFloat), 819453077U) },
+		{ FCameraTriggerUpdateBool::StaticStruct, Z_Construct_UScriptStruct_FCameraTriggerUpdateBool_Statics::NewStructOps, TEXT("CameraTriggerUpdateBool"), &Z_Registration_Info_UScriptStruct_CameraTriggerUpdateBool, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCameraTriggerUpdateBool), 1745092448U) },
+		{ FCameraTriggerUpdateVector::StaticStruct, Z_Construct_UScriptStruct_FCameraTriggerUpdateVector_Statics::NewStructOps, TEXT("CameraTriggerUpdateVector"), &Z_Registration_Info_UScriptStruct_CameraTriggerUpdateVector, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCameraTriggerUpdateVector), 1808370222U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_1300330409(TEXT("/Script/SST"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_2169380884(TEXT("/Script/SST"),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::ScriptStructInfo),
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::ScriptStructInfo),
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_CameraTriggerUpdateContents_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

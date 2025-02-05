@@ -25,9 +25,13 @@ struct Z_Construct_UDelegateFunction_SST_PerformDashDelegate__DelegateSignature_
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * Overrides the default CharacterMovementComponent to provide custom movement:\n *   - Wallsliding\n *   - Walljumping\n *   - Dashing\n *\x09 - Drop down through a OneWayPlatform\n *\n * Also enables 180-degree only left/right smooth rotation with configurable rate.\n *\n * These features are designed for replication to support network play.\n */// Exact dashing behavior can be designed in blueprints via delegate\n" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Overrides the default CharacterMovementComponent to provide custom movement:\n  - Wallsliding\n  - Walljumping\n  - Dashing\n     - Drop down through a OneWayPlatform\n\nAlso enables 180-degree only left/right smooth rotation with configurable rate.\n\nThese features are designed for replication to support network play.\n // Exact dashing behavior can be designed in blueprints via delegate" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -93,7 +97,9 @@ struct Z_Construct_UEnum_SST_ESSTCharacterMovementMode_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "// Custom character movement modes\n" },
+#endif
 		{ "FSSTMOVE_DASHING.DisplayName", "Dashing" },
 		{ "FSSTMOVE_DASHING.Name", "FSSTMOVE_DASHING" },
 		{ "FSSTMOVE_MAX.Hidden", "" },
@@ -103,7 +109,9 @@ struct Z_Construct_UEnum_SST_ESSTCharacterMovementMode_Statics
 		{ "FSSTMOVE_WALLSLIDING.DisplayName", "Wallsliding" },
 		{ "FSSTMOVE_WALLSLIDING.Name", "FSSTMOVE_WALLSLIDING" },
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Custom character movement modes" },
+#endif
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
@@ -146,9 +154,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_CanDash_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Returns true if the character is currently able to dash */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Returns true if the character is currently able to dash" },
+#endif
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -195,9 +207,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_CanWalljump_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Whether the character is wallsliding, or has just left a wall, and can walljump */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Whether the character is wallsliding, or has just left a wall, and can walljump" },
+#endif
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -245,9 +261,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Checks whether the character is currently in the specified custom movement mode */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Checks whether the character is currently in the specified custom movement mode" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_Mode;
@@ -256,7 +276,7 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode_Statics::NewProp_Mode = { "Mode", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SSTCharacterMovementComponent_eventIsCustomMovementMode_Parms, Mode), Z_Construct_UEnum_SST_ESSTCharacterMovementMode, METADATA_PARAMS(0, nullptr) }; // 314325196
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode_Statics::NewProp_Mode = { "Mode", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(SSTCharacterMovementComponent_eventIsCustomMovementMode_Parms, Mode), Z_Construct_UEnum_SST_ESSTCharacterMovementMode, METADATA_PARAMS(0, nullptr) }; // 1254598217
 void Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
 	((SSTCharacterMovementComponent_eventIsCustomMovementMode_Parms*)Obj)->ReturnValue = 1;
@@ -298,9 +318,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_IsFacingRight_Static
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Whether the character is currently facing right (or has started turning towards it) */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Whether the character is currently facing right (or has started turning towards it)" },
+#endif
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -338,19 +362,31 @@ DEFINE_FUNCTION(USSTCharacterMovementComponent::execIsFacingRight)
 // End Class USSTCharacterMovementComponent Function IsFacingRight
 
 // Begin Class USSTCharacterMovementComponent Function OnBeginDash
-static FName NAME_USSTCharacterMovementComponent_OnBeginDash = FName(TEXT("OnBeginDash"));
+static const FName NAME_USSTCharacterMovementComponent_OnBeginDash = FName(TEXT("OnBeginDash"));
 void USSTCharacterMovementComponent::OnBeginDash()
 {
-	ProcessEvent(FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnBeginDash),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnBeginDash);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		OnBeginDash_Implementation();
+	}
 }
 struct Z_Construct_UFunction_USSTCharacterMovementComponent_OnBeginDash_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when beginning a dash. Can be extended via blueprint */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when beginning a dash. Can be extended via blueprint" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -375,19 +411,31 @@ DEFINE_FUNCTION(USSTCharacterMovementComponent::execOnBeginDash)
 // End Class USSTCharacterMovementComponent Function OnBeginDash
 
 // Begin Class USSTCharacterMovementComponent Function OnBeginWallslide
-static FName NAME_USSTCharacterMovementComponent_OnBeginWallslide = FName(TEXT("OnBeginWallslide"));
+static const FName NAME_USSTCharacterMovementComponent_OnBeginWallslide = FName(TEXT("OnBeginWallslide"));
 void USSTCharacterMovementComponent::OnBeginWallslide()
 {
-	ProcessEvent(FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnBeginWallslide),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnBeginWallslide);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		OnBeginWallslide_Implementation();
+	}
 }
 struct Z_Construct_UFunction_USSTCharacterMovementComponent_OnBeginWallslide_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when beginning a wallslide. Can be extended via blueprint */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when beginning a wallslide. Can be extended via blueprint" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -412,19 +460,31 @@ DEFINE_FUNCTION(USSTCharacterMovementComponent::execOnBeginWallslide)
 // End Class USSTCharacterMovementComponent Function OnBeginWallslide
 
 // Begin Class USSTCharacterMovementComponent Function OnEndDash
-static FName NAME_USSTCharacterMovementComponent_OnEndDash = FName(TEXT("OnEndDash"));
+static const FName NAME_USSTCharacterMovementComponent_OnEndDash = FName(TEXT("OnEndDash"));
 void USSTCharacterMovementComponent::OnEndDash()
 {
-	ProcessEvent(FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnEndDash),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnEndDash);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		OnEndDash_Implementation();
+	}
 }
 struct Z_Construct_UFunction_USSTCharacterMovementComponent_OnEndDash_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when finishing a dash. Can be extended via blueprint */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when finishing a dash. Can be extended via blueprint" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -449,19 +509,31 @@ DEFINE_FUNCTION(USSTCharacterMovementComponent::execOnEndDash)
 // End Class USSTCharacterMovementComponent Function OnEndDash
 
 // Begin Class USSTCharacterMovementComponent Function OnEndWallslide
-static FName NAME_USSTCharacterMovementComponent_OnEndWallslide = FName(TEXT("OnEndWallslide"));
+static const FName NAME_USSTCharacterMovementComponent_OnEndWallslide = FName(TEXT("OnEndWallslide"));
 void USSTCharacterMovementComponent::OnEndWallslide()
 {
-	ProcessEvent(FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnEndWallslide),NULL);
+	UFunction* Func = FindFunctionChecked(NAME_USSTCharacterMovementComponent_OnEndWallslide);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+	ProcessEvent(Func,NULL);
+	}
+	else
+	{
+		OnEndWallslide_Implementation();
+	}
 }
 struct Z_Construct_UFunction_USSTCharacterMovementComponent_OnEndWallslide_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when finishing a wallslide. Can be extended via blueprint */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when finishing a wallslide. Can be extended via blueprint" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -490,9 +562,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_OnRep_IsDashing_Stat
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Handle Dashing replicated from server */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Handle Dashing replicated from server" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -521,9 +597,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_OnRep_IsWallsliding_
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Handle Wallsliding replicated from server */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Handle Wallsliding replicated from server" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFunctionParams FuncParams;
@@ -557,9 +637,13 @@ struct Z_Construct_UFunction_USSTCharacterMovementComponent_RequestTurnAround_St
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Begins a 180-degree turn. Returns false if the character is already in a turn */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Begins a 180-degree turn. Returns false if the character is already in a turn" },
+#endif
 	};
 #endif // WITH_METADATA
 	static void NewProp_ReturnValue_SetBit(void* Obj);
@@ -628,188 +712,296 @@ struct Z_Construct_UClass_USSTCharacterMovementComponent_Statics
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SSTCharacterOwner_MetaData[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Owning character for this component */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Owning character for this component" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TurnAroundSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Time it takes to fully turn around, in seconds */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Time it takes to fully turn around, in seconds" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanWallSlide_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Determines whether the character is capable of wallsliding. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Determines whether the character is capable of wallsliding." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideSpeed_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Speed at which the character slides down a wall */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Speed at which the character slides down a wall" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideInputAngleStrictness_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** (0-1) Controls how strictly along the x-axis the player must hold an analog input to continue wallsliding */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "(0-1) Controls how strictly along the x-axis the player must hold an analog input to continue wallsliding" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideAllowableWallAngleStrictness_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** (0-1) Lower values allow a wall greater deviations from pure vertical before it is no longer eligible for wallslide */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "(0-1) Lower values allow a wall greater deviations from pure vertical before it is no longer eligible for wallslide" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideDistanceFromWall_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** In units, the distance from the wall at which the character slides */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "In units, the distance from the wall at which the character slides" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideMinFloorHeight_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** In units, the distance above the floor before landing and ending the wallslide */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "In units, the distance above the floor before landing and ending the wallslide" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideJumpOffForce_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** The force with which the character jumps out of a wallslide. Set to 0 to disable walljump. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The force with which the character jumps out of a wallslide. Set to 0 to disable walljump." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideJumpAngle_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** The angle with which the character jumps out of a wallslide. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "The angle with which the character jumps out of a wallslide." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideJumpInputDisableSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Time after performing a walljump before the jump button can be used to double-jump. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Time after performing a walljump before the jump button can be used to double-jump." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WallslideReleaseWalljumpBufferSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Buffer after releasing a wallslide and beginning falling during which a jump will still count as a walljump. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Buffer after releasing a wallslide and beginning falling during which a jump will still count as a walljump." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WalljumpCooldownSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Minimum amount of time between walljumps. Should be larger than WallslideReleaseWalljumpBufferSeconds. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Minimum amount of time between walljumps. Should be larger than WallslideReleaseWalljumpBufferSeconds." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashEnabled_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If false, dashing is disabled. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If false, dashing is disabled." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MaxDashesBeforeLanding_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Number of dashes a character can perform in midair before landing. No limit if negative. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Number of dashes a character can perform in midair before landing. No limit if negative." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashDistance_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** In units, length of a dash. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "In units, length of a dash." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashDurationSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** In seconds, duration of a dash. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "In seconds, duration of a dash." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashCooldownSeconds_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Cooldown between dashes. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Cooldown between dashes." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashFriction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Friction applied during dashes. Can be modified via blueprint e.g. if in water.  */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Friction applied during dashes. Can be modified via blueprint e.g. if in water." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanTurnWhileDashing_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, the player can turn around while in the middle of a dash (changing direction of dash) */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, the player can turn around while in the middle of a dash (changing direction of dash)" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanJumpCancelDash_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, the player can jump while in the middle of a dash, immediately ending it */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, the player can jump while in the middle of a dash, immediately ending it" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_DashFollowsDownwardSlopes_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** When dashing on a slope facing downwards, the character will go down the slope if true, or horizontally outward if false.  */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "When dashing on a slope facing downwards, the character will go down the slope if true, or horizontally outward if false." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WantsToDash_MetaData[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, attempt to dash on next update. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, attempt to dash on next update." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsDashing_MetaData[] = {
 		{ "Category", "Character" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Set by character movement to specify that this Character is currently dashing. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Set by character movement to specify that this Character is currently dashing." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PerformDashDelegate_MetaData[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Blueprint-assignable dash implementation */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Blueprint-assignable dash implementation" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EndDashDelegate_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_IsWallsliding_MetaData[] = {
 		{ "Category", "Character" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Set by character movement to specify that this Character is currently wallsliding. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Set by character movement to specify that this Character is currently wallsliding." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WantsToPlatformDrop_MetaData[] = {
 		{ "Category", "Movement" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, attempt to drop through platform on next update. */" },
+#endif
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, attempt to drop through platform on next update." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FacingRight_MetaData[] = {
 		{ "ModuleRelativePath", "Public/SSTCharacterMovementComponent.h" },
@@ -857,17 +1049,17 @@ struct Z_Construct_UClass_USSTCharacterMovementComponent_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_CanDash, "CanDash" }, // 44920748
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_CanWalljump, "CanWalljump" }, // 2792988479
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode, "IsCustomMovementMode" }, // 2542304987
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_IsFacingRight, "IsFacingRight" }, // 1678320404
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnBeginDash, "OnBeginDash" }, // 2736498332
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnBeginWallslide, "OnBeginWallslide" }, // 2782206756
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnEndDash, "OnEndDash" }, // 3277625653
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnEndWallslide, "OnEndWallslide" }, // 2941080293
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnRep_IsDashing, "OnRep_IsDashing" }, // 490858556
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnRep_IsWallsliding, "OnRep_IsWallsliding" }, // 500234640
-		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_RequestTurnAround, "RequestTurnAround" }, // 2532735598
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_CanDash, "CanDash" }, // 883239851
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_CanWalljump, "CanWalljump" }, // 2635179320
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_IsCustomMovementMode, "IsCustomMovementMode" }, // 1366837814
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_IsFacingRight, "IsFacingRight" }, // 254779054
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnBeginDash, "OnBeginDash" }, // 3834657161
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnBeginWallslide, "OnBeginWallslide" }, // 2540742079
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnEndDash, "OnEndDash" }, // 249216216
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnEndWallslide, "OnEndWallslide" }, // 4253668600
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnRep_IsDashing, "OnRep_IsDashing" }, // 119850664
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_OnRep_IsWallsliding, "OnRep_IsWallsliding" }, // 126387172
+		{ &Z_Construct_UFunction_USSTCharacterMovementComponent_RequestTurnAround, "RequestTurnAround" }, // 3669082665
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -927,7 +1119,7 @@ void Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_IsDashin
 	((USSTCharacterMovementComponent*)Obj)->IsDashing = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_IsDashing = { "IsDashing", "OnRep_IsDashing", (EPropertyFlags)0x0010000100000034, UECodeGen_Private::EPropertyGenFlags::Bool , RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(uint8), sizeof(USSTCharacterMovementComponent), &Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_IsDashing_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_IsDashing_MetaData), NewProp_IsDashing_MetaData) };
-const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_PerformDashDelegate = { "PerformDashDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USSTCharacterMovementComponent, PerformDashDelegate), Z_Construct_UDelegateFunction_SST_PerformDashDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PerformDashDelegate_MetaData), NewProp_PerformDashDelegate_MetaData) }; // 3218078415
+const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_PerformDashDelegate = { "PerformDashDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USSTCharacterMovementComponent, PerformDashDelegate), Z_Construct_UDelegateFunction_SST_PerformDashDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PerformDashDelegate_MetaData), NewProp_PerformDashDelegate_MetaData) }; // 2243109419
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_EndDashDelegate = { "EndDashDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USSTCharacterMovementComponent, EndDashDelegate), Z_Construct_UDelegateFunction_SST_EndDashDelegate__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EndDashDelegate_MetaData), NewProp_EndDashDelegate_MetaData) }; // 3264882727
 void Z_Construct_UClass_USSTCharacterMovementComponent_Statics::NewProp_IsWallsliding_SetBit(void* Obj)
 {
@@ -1024,18 +1216,18 @@ USSTCharacterMovementComponent::~USSTCharacterMovementComponent() {}
 // End Class USSTCharacterMovementComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ ESSTCharacterMovementMode_StaticEnum, TEXT("ESSTCharacterMovementMode"), &Z_Registration_Info_UEnum_ESSTCharacterMovementMode, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 314325196U) },
+		{ ESSTCharacterMovementMode_StaticEnum, TEXT("ESSTCharacterMovementMode"), &Z_Registration_Info_UEnum_ESSTCharacterMovementMode, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 1254598217U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_USSTCharacterMovementComponent, USSTCharacterMovementComponent::StaticClass, TEXT("USSTCharacterMovementComponent"), &Z_Registration_Info_UClass_USSTCharacterMovementComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USSTCharacterMovementComponent), 3906755380U) },
+		{ Z_Construct_UClass_USSTCharacterMovementComponent, USSTCharacterMovementComponent::StaticClass, TEXT("USSTCharacterMovementComponent"), &Z_Registration_Info_UClass_USSTCharacterMovementComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USSTCharacterMovementComponent), 3031539701U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_2910311495(TEXT("/Script/SST"),
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_4285717646(TEXT("/Script/SST"),
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::ClassInfo),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_SSTCharacterMovementComponent_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

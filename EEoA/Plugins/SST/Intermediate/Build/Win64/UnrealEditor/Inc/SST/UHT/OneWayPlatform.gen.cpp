@@ -33,26 +33,38 @@ struct OneWayPlatform_eventOnOverlapBeginBelowTrigger_Parms
 	bool bFromSweep;
 	FHitResult SweepResult;
 };
-static FName NAME_AOneWayPlatform_OnOverlapBeginBelowTrigger = FName(TEXT("OnOverlapBeginBelowTrigger"));
+static const FName NAME_AOneWayPlatform_OnOverlapBeginBelowTrigger = FName(TEXT("OnOverlapBeginBelowTrigger"));
 void AOneWayPlatform::OnOverlapBeginBelowTrigger(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, FHitResult const& SweepResult)
 {
-	OneWayPlatform_eventOnOverlapBeginBelowTrigger_Parms Parms;
-	Parms.OverlappedComp=OverlappedComp;
-	Parms.OtherActor=OtherActor;
-	Parms.OtherComp=OtherComp;
-	Parms.OtherBodyIndex=OtherBodyIndex;
-	Parms.bFromSweep=bFromSweep ? true : false;
-	Parms.SweepResult=SweepResult;
-	ProcessEvent(FindFunctionChecked(NAME_AOneWayPlatform_OnOverlapBeginBelowTrigger),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_AOneWayPlatform_OnOverlapBeginBelowTrigger);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		OneWayPlatform_eventOnOverlapBeginBelowTrigger_Parms Parms;
+		Parms.OverlappedComp=OverlappedComp;
+		Parms.OtherActor=OtherActor;
+		Parms.OtherComp=OtherComp;
+		Parms.OtherBodyIndex=OtherBodyIndex;
+		Parms.bFromSweep=bFromSweep ? true : false;
+		Parms.SweepResult=SweepResult;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		OnOverlapBeginBelowTrigger_Implementation(OverlappedComp, OtherActor, OtherComp, OtherBodyIndex, bFromSweep, SweepResult);
+	}
 }
 struct Z_Construct_UFunction_AOneWayPlatform_OnOverlapBeginBelowTrigger_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Overlap" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when a character approaches the platform from below */" },
+#endif
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when a character approaches the platform from below" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OverlappedComp_MetaData[] = {
 		{ "EditInline", "true" },
@@ -127,24 +139,36 @@ struct OneWayPlatform_eventOnOverlapEndBelowTrigger_Parms
 	UPrimitiveComponent* OtherComp;
 	int32 OtherBodyIndex;
 };
-static FName NAME_AOneWayPlatform_OnOverlapEndBelowTrigger = FName(TEXT("OnOverlapEndBelowTrigger"));
+static const FName NAME_AOneWayPlatform_OnOverlapEndBelowTrigger = FName(TEXT("OnOverlapEndBelowTrigger"));
 void AOneWayPlatform::OnOverlapEndBelowTrigger(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	OneWayPlatform_eventOnOverlapEndBelowTrigger_Parms Parms;
-	Parms.OverlappedComp=OverlappedComp;
-	Parms.OtherActor=OtherActor;
-	Parms.OtherComp=OtherComp;
-	Parms.OtherBodyIndex=OtherBodyIndex;
-	ProcessEvent(FindFunctionChecked(NAME_AOneWayPlatform_OnOverlapEndBelowTrigger),&Parms);
+	UFunction* Func = FindFunctionChecked(NAME_AOneWayPlatform_OnOverlapEndBelowTrigger);
+	if (!Func->GetOwnerClass()->HasAnyClassFlags(CLASS_Native))
+	{
+		OneWayPlatform_eventOnOverlapEndBelowTrigger_Parms Parms;
+		Parms.OverlappedComp=OverlappedComp;
+		Parms.OtherActor=OtherActor;
+		Parms.OtherComp=OtherComp;
+		Parms.OtherBodyIndex=OtherBodyIndex;
+	ProcessEvent(Func,&Parms);
+	}
+	else
+	{
+		OnOverlapEndBelowTrigger_Implementation(OverlappedComp, OtherActor, OtherComp, OtherBodyIndex);
+	}
 }
 struct Z_Construct_UFunction_AOneWayPlatform_OnOverlapEndBelowTrigger_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Overlap" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Called when a character is no longer directly below the platform */" },
+#endif
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Called when a character is no longer directly below the platform" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OverlappedComp_MetaData[] = {
 		{ "EditInline", "true" },
@@ -205,9 +229,13 @@ struct Z_Construct_UFunction_AOneWayPlatform_RequestCharacterPassthrough_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Input" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Call this method with the target character to allow the character to fall through */" },
+#endif
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Call this method with the target character to allow the character to fall through" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Character;
@@ -260,40 +288,60 @@ struct Z_Construct_UClass_AOneWayPlatform_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/**\n * A platform which, by default, allows the character to pass through when jumping up from below, but\n *\x09""becomes solid ground when falling from above. By default, pressing down+jump will cause the character\n *\x09to fall back through the platform. Both of these capabilities can be disabled per instance. \n * \n * Sets collision on a per-character basis, so that in a multiplayer setting one character can remain\n *\x09standing on the platform while another passes through. \n */" },
+#endif
 		{ "IncludePath", "OneWayPlatform.h" },
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "A platform which, by default, allows the character to pass through when jumping up from below, but\n    becomes solid ground when falling from above. By default, pressing down+jump will cause the character\n    to fall back through the platform. Both of these capabilities can be disabled per instance.\n\nSets collision on a per-character basis, so that in a multiplayer setting one character can remain\n    standing on the platform while another passes through." },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StaticMesh_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "OneWayPlatform" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Static Mesh */" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Static Mesh" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_BelowTrigger_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "OneWayPlatform" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Below Trigger Volume -- Disables collision when player approaches from below */" },
+#endif
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Below Trigger Volume -- Disables collision when player approaches from below" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanPassThroughFromBelow_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "OneWayPlatform" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, player can pass through the platform from below (one-way behavior) */" },
+#endif
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, player can pass through the platform from below (one-way behavior)" },
+#endif
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CanDropDownFromAbove_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "OneWayPlatform" },
+#if !UE_BUILD_SHIPPING
 		{ "Comment", "/** If true, the player can drop through the platform while standing on it via an input */" },
+#endif
 		{ "ModuleRelativePath", "Public/OneWayPlatform.h" },
+#if !UE_BUILD_SHIPPING
 		{ "ToolTip", "If true, the player can drop through the platform while standing on it via an input" },
+#endif
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_StaticMesh;
@@ -305,9 +353,9 @@ struct Z_Construct_UClass_AOneWayPlatform_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_AOneWayPlatform_OnOverlapBeginBelowTrigger, "OnOverlapBeginBelowTrigger" }, // 1920055927
-		{ &Z_Construct_UFunction_AOneWayPlatform_OnOverlapEndBelowTrigger, "OnOverlapEndBelowTrigger" }, // 1899553983
-		{ &Z_Construct_UFunction_AOneWayPlatform_RequestCharacterPassthrough, "RequestCharacterPassthrough" }, // 2745021280
+		{ &Z_Construct_UFunction_AOneWayPlatform_OnOverlapBeginBelowTrigger, "OnOverlapBeginBelowTrigger" }, // 3124027090
+		{ &Z_Construct_UFunction_AOneWayPlatform_OnOverlapEndBelowTrigger, "OnOverlapEndBelowTrigger" }, // 956781307
+		{ &Z_Construct_UFunction_AOneWayPlatform_RequestCharacterPassthrough, "RequestCharacterPassthrough" }, // 1315572229
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -371,14 +419,14 @@ AOneWayPlatform::~AOneWayPlatform() {}
 // End Class AOneWayPlatform
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_OneWayPlatform_h_Statics
+struct Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_OneWayPlatform_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AOneWayPlatform, AOneWayPlatform::StaticClass, TEXT("AOneWayPlatform"), &Z_Registration_Info_UClass_AOneWayPlatform, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneWayPlatform), 3343948449U) },
+		{ Z_Construct_UClass_AOneWayPlatform, AOneWayPlatform::StaticClass, TEXT("AOneWayPlatform"), &Z_Registration_Info_UClass_AOneWayPlatform, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AOneWayPlatform), 2491649221U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_OneWayPlatform_h_1818179019(TEXT("/Script/SST"),
-	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_OneWayPlatform_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_SST_Source_SST_Public_OneWayPlatform_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_OneWayPlatform_h_1826508820(TEXT("/Script/SST"),
+	Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_OneWayPlatform_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_EEoA_Plugins_SST_Source_SST_Public_OneWayPlatform_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration
